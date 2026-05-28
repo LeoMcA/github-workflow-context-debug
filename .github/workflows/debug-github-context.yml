@@ -1,0 +1,12 @@
+name: Debug GitHub Context
+
+on:
+  pull_request:
+  pull_request_target:
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post GitHub Context (${{ github.event_name }})
+        run: echo '${{ toJSON(github) }}' | jq .
